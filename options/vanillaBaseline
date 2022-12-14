@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "Oki! Preparing to build a Vanilla Arch ISO using latest monthly profile!" && sleep 1.3
+echo "Oki! Preparing to build a Vanilla Arch ISO using latest monthly ${fgCyan}Baseline${txReset} profile!"
+echo "Do keep in mind this ISO will have only just enough for you to boot it!"
 echo
 
 	profile=baseline
@@ -14,39 +15,43 @@ cd
 echo "First abs will check to see if you have used this option before."
 echo "Should abs find the directory this option uses, abs will preserve it so that any older ISO's will not be lost."
 echo "The build directory however will be destroyed and remade."
+echo
 
 if [[ -d Arch-Vanilla-Baseline ]]; then
-	echo "abs has ${fgCyan}found${txReset} the Arch-Vanilla-Baseline directory this option uses!" && sleep 1.3
+	echo "abs has ${fgCyan}found${txReset} the ${fgCyan}Arch-Vanilla-Baseline${txReset} directory this option uses!"
 	echo "abs will now change into that directory and empty the build folder before moving forward."
+	echo
 	sudo rm -rf Arch-Vanilla-Baseline/Build && mkdir Arch-Vanilla-Baseline/Build
 else
-	echo "abs could ${fgRed}not${txReset} locate the directory this option uses. abs will now create it." && sleep 1.3
+	echo "abs could ${fgRed}not${txReset} locate the directory this option uses. abs will now create it."
 	mkdir Arch-Vanilla-Baseline
 	mkdir Arch-Vanilla-Baseline/ISO
 	mkdir Arch-Vanilla-Baseline/Build
-	echo "Arch-Vanilla-Baseline directory has been created and within it exist folders labeled ISO and Build."
-	echo "abs will now change into the Arch-Vanilla directory and move onto the next step."
+	echo "${fgCyan}Arch-Vanilla-Baseline${txReset} directory has been created and within it exist folders labeled ${fgCyan}ISO${txReset} and ${fgCyan}Build${txReset}."
+	echo "abs will now change into the ${fgCyan}Arch-Vanilla-Baseline${txReset} directory and move onto the next step."
+	echo
 fi
 
 cd Arch-Vanilla-Baseline
 
-echo
-echo "abs will now check if you have the latest archiso so that we only build the newest ISO possible."
+echo "abs will now check if you have the latest archiso so that we only build the ${fgCyan}newest${txReset} ISO possible."
 
 checkInternetConnection
 isArchisoUpToDate
 valenRepoAdder
 
-echo "abs will now copy over the Latest Montly Arch Profile into this directory."
+echo "abs will now copy over the Latest Montly ${fgCyan}Baseline${txReset} Arch Profile into this directory."
 cp -rf /usr/share/archiso/configs/baseline/ baseline/
-sudo chown -R $user baseline
 
 echo
-echo "We are all setup to build the latest Baseline Vanilla Arch Monthly ISO. Lets Begin!"
-echo "ISO will be found in a folder within this directory labeled ISO!"
-echo "Build folder will be labeled Build!"
+echo "We are all setup to build the ${fgCyan}latest Baseline${txReset} Vanilla Arch Monthly ISO. Lets Begin!"
+echo "ISO will be found in ${fgCyan}~/Arch-Vanilla-Baseline/ISO/${txReset}!"
+echo "Build folder will be found in ${fgCyan}~/Arch-Vanilla-Baseline/Build/${txReset}!"
 echo "This will take a bit so perhaps make some coffee!"
 
 sudo mkarchiso -v -w $buildDir -o $outDir $profile
 sudo chown -R $user $buildDir
 sudo chown -R $user $outDir
+
+echo
+echo "Done! Check out ${fgCyan}~/Arch-Vanilla-Baseline/ISO/${txReset} for your new ISO!"

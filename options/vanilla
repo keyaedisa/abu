@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Oki! Preparing to build a Vanilla Arch ISO using latest monthly profile!" && sleep 1.3
+echo "Oki! Preparing to build a Vanilla Arch ISO using latest monthly ${fgCyan}Releng${txReset} profile!"
 echo
 
 	profile=releng
@@ -14,39 +14,44 @@ cd
 echo "First abs will check to see if you have used this option before."
 echo "Should abs find the directory this option uses, abs will preserve it so that any older ISO's will not be lost."
 echo "The build directory however will be destroyed and remade."
+echo
 
 if [[ -d Arch-Vanilla ]]; then
-	echo "abs has ${fgCyan}found${txReset} the Arch-Vanilla directory this option uses!" && sleep 1.3
+	echo "abs has ${fgCyan}found${txReset} the ${fgCyan}Arch-Vanilla${txReset} directory this option uses!"
 	echo "abs will now change into that directory and empty the build folder before moving forward."
+	echo
 	sudo rm -rf Arch-Vanilla/Build && mkdir Arch-Vanilla/Build
 else
-	echo "abs could ${fgRed}not${txReset} locate the directory this option uses. abs will now create it." && sleep 1.3
+	echo "abs could ${fgRed}not${txReset} locate the directory this option uses. abs will now create it."
 	mkdir Arch-Vanilla
 	mkdir Arch-Vanilla/ISO
 	mkdir Arch-Vanilla/Build
-	echo "Arch-Vanilla directory has been created and within it exist folders labeled ISO and Build."
-	echo "abs will now change into the Arch-Vanilla directory and move onto the next step."
+	echo "${fgCyan}Arch-Vanilla${txReset} directory has been created and within it exist folders labeled ${fgCyan}ISO${txReset} and ${fgCyan}Build${txReset}."
+	echo "abs will now change into the ${fgCyan}Arch-Vanilla${txReset} directory and move onto the next step."
+	echo
 fi
 
 cd Arch-Vanilla
 
+echo "abs will now check if you have the latest archiso so that abs only builds the ${fgCyan}newest${txReset} ISO possible."
 echo
-echo "abs will now check if you have the latest archiso so that we only build the newest ISO possible."
 
 checkInternetConnection
 isArchisoUpToDate
 valenRepoAdder
 
-echo "abs will now copy over the Latest Montly Arch Profile into this directory."
-cp -rf /usr/share/archiso/configs/releng/ releng/
-sudo chown -R $user releng
-
+echo "abs will now copy over the Latest Montly ${fgCyan}Releng${txReset} Arch Profile into this directory."
 echo
-echo "We are all setup to build the latest Vanilla Arch Monthly ISO. Lets Begin!"
-echo "ISO will be found in a folder within this directory labeled ISO!"
-echo "Build folder will be labeled Build!"
+cp -rf /usr/share/archiso/configs/releng/ releng/
+
+echo "We are all setup to build the ${fgCyan}latest releng${txReset} Vanilla Arch Monthly ISO. Lets Begin!"
+echo "ISO will be found in ${fgCyan}~/Arch-Vanilla/ISO/${txReset}!"
+echo "Build folder will be found in ${fgCyan}~/Arch-Vanilla/Build/${txReset}!"
 echo "This will take a bit so perhaps make some coffee!"
+echo
 
 sudo mkarchiso -v -w $buildDir -o $outDir $profile
 sudo chown -R $user $buildDir
 sudo chown -R $user $outDir
+
+echo "Done! Check out ${fgCyan}~/Arch-Vanilla/ISO/${txReset} for your new ISO!"
