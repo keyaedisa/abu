@@ -38,6 +38,9 @@ started! This functioniality and more provided by abs!
 - abs is capable of updating your archiso profile interactively! updating your archiso profiles
   profiledef.sh!
 - abs can also update your dev-rel in your airootfs/etc/ directory!
+- Easily and seamlessly build Vanilla Arch ISO's whether releng or baseline!
+- Easily and seamlessly build either KDE or Gnome Editions of XeroLinux!
+- Easily and seamlessly build your own custom Arch ISO's!
 
 abs also runs several tests behind the scenes to ensure that your iso's build
 process can run smoothly!
@@ -47,8 +50,7 @@ Some of these checks include:
 - Making sure archiso is up to date
 - Making sure sudo permissions are not used innappropriately
 - Checking if you are in the correct directory
-- Ensuring that Valen Repo is present in both of the pacman.conf's in your archiso profile!
-  Both for the live iso and what will become the post install system!
+- Asking if you would like to bundle Valen Repo with your new ISO
 - This and so much more!
 
 # Feature Request
@@ -56,6 +58,8 @@ Some of these checks include:
 Have a feature you want to request? Reach out to me and I will see if I can get
 it on a priority list depending on it's ease of implementation of and
 usefulness!
+
+I am also more than open to building in direct support for other distributions!
 
 # Yes that's right!
 
@@ -74,11 +78,9 @@ choose!
 
 Or once you're familiar with abs you can simply pass it the option you want when first starting it!
 
-Since abs is still in it's infancy, currently there are only 3 available options.
-- custom : this option is to be used with your custom archiso profile!
-- xero : this option starts an interactive process to build XeroLinux from
-latest git!
-- help : Explains abs functionality in greather depth!
+abs is ever evolving and now supports building both KDE and Gnome Versions of XeroLinux out of the box!
+abs doesn't stop there however as it can even build the latest Arch Monthly ISO's whether releng or baseline!
+abs has doubled its available options in the recent 3.0 update!
 
 To get started with abs either install latest release, or copy the command below
 to add Valen Repository to your pacman.conf so that you can install abs with
@@ -86,12 +88,13 @@ pacman and automatically recieve latest updates!
 
 Good Luck and have fun!
 
-abs 3.0 is already on the drawing board and will be a massive leap in
-functionality from abs 2.0!
 
 # How to install
-Either download the latest release and install it using 'sudo pacman -U'
-or
-Go to https://github.com/keyaedisa/valen_repo and copy the the install command in the read to to automatically add Valen Reposity to your arch install!
+
+Go to https://github.com/keyaedisa/valen_repo to download the latest release or copy and paste the below script into your terminal to automatically add Valen Repo to your pacman.conf so that you can recieve automatic updates!
+```
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/keyaedisa/valen_repo/trunk/install/addRepo2PacmanConf.sh)"
+```
 This method is preferred as it means you will always get latest updates as they are pushed, where as releases will be updated typically only on major updates!
-Once install script is ran, simpky run 'sudo pacman -S abs' to download the latest scripts!
+We also use keys to ensure security for the end user! This will only work however if using the provided script!
+Once install script is ran, simply run 'sudo pacman -S abs' to download the latest abs!

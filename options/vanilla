@@ -6,8 +6,8 @@ echo
 	profile=releng
 	profiledef=$profile/profiledef.sh
 	user=$(whoami)
-	outDir=ISO/
-	buildDir=Build/
+	outDir=ISO
+	buildDir=Build
 
 cd
 
