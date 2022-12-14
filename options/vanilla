@@ -38,7 +38,8 @@ isArchisoUpToDate
 valenRepoAdder
 
 echo "abs will now copy over the Latest Montly Arch Profile into this directory."
-cp -rf /usr/share/archiso/configs/releng/ Arch-Vanilla/
+cp -rf /usr/share/archiso/configs/releng/ releng/
+sudo chown -R $user releng
 
 echo
 echo "We are all setup to build the latest Vanilla Arch Monthly ISO. Lets Begin!"
@@ -47,5 +48,5 @@ echo "Build folder will be labeled Build!"
 echo "This will take a bit so perhaps make some coffee!"
 
 sudo mkarchiso -v -w $buildDir -o $outDir $profile
-#sudo -U $user chown -R $user $buildDir
-#sudo -U $user chown -R $user $outDir
+sudo chown -R $user $buildDir
+sudo chown -R $user $outDir
