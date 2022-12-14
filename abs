@@ -1,138 +1,63 @@
 #!/bin/bash
-#set -e
+# https://keyaedisa.github.io/
 
-source /etc/abs/misc/.bashFormatting
-source /etc/abs/.options
+export BT="abs"
 
-trap_ctrlc() {
-	echo
-    echo "Ctrl-C detected. Ending current abs session."
-    exit
-}
+source /etc/$BT/misc/.bashFormatting
+source /etc/$BT/misc/.functions
+source /etc/$BT/.options
 
-trap "trap_ctrlc" 2
-
-
-cloneGit() {
-	read -p "Would you like to clone the latest ${1} git to your home directory? ${fgRed}Warning${txReset}! This will replace this repo in your home directory if it already exists! (${fgGreen}Y${txReset}/${fgRed}N${txReset}): " YN
-	finished="0"
-	profileSelection=$1
-	while [[ $finished != 1 ]]; do
-	case $YN in
-		y | Y | yes | Yes | YES )
-
-			echo "Oki, cloning repo now."
-			if [[ $profileSelection == "xero" ]]; then
-				if [[ -d ~/xero_iso ]]; then
-					rm -rf ~/xero_iso
-					git clone https://github.com/xerolinux/xero_iso.git ~/xero_iso
-				else
-					git clone https://github.com/xerolinux/xero_iso.git ~/xero_iso
-				fi
-			elif [[ $profileSelection == "xerog" ]]; then
-				if [[ -d ~/xero_g_iso ]]; then
-					rm -rf ~/xero_g_iso
-					git clone https://github.com/xerolinux/xero_g_iso.git ~/xero_g_iso
-				else
-					git clone https://github.com/xerolinux/xero_g_iso.git ~/xero_g_iso
-				fi
-			else
-				echo "This never happens. Congrats"
-			fi
-			finished="1"
-			echo "Done."
-			;;
-		n | N | no | No | NO )
-			echo "Oki. abs will not clone. Please run abs in the directory containing the xero profile"
-			finished="1"
-			;;
-		* )
-			echo "abs does not understand your response. Please try again. ${fgGreen}Y${txReset} or ${fgRed}N${txReset}."
-			read -p "Would you like to clone the latest ${1} git to your home directory?: " YN
-			;;
-	esac
-	done
-}
-
-absC() {
-	echo "Oki, let's get ready to build a custom iso using a user provided profile."
-#	read -p "What is the name of the archiso profile abs will be building your iso with? : " archisoProfile
-#	echo
-#	echo "Scanning for provided archiso profile."
-#	if [[ ! -d $archisoProfile ]]; then
-#		echo "Couldn't find the archiso profile you provided in the current directory."
-#		echo "Please change to the proper directory and call abs once more."
-#	else
-#		echo "abs found your archiso profile. abs will now begin your iso's build process."
+if [[ $1 == "-c" || $1 == "custom" ]]; then
 	custom
-#	fi
-}
-
-absX() {
-	echo "Oki, let's get ready to build a Xero iso from the provided xero profile."
-	echo
-	echo "Scanning for Xero profile."
-	if [[ ! -d Xero ]]; then
-		echo "Couldn't find the xero profile in the current directory."
-		cloneGit xero
-		echo "Changing directory to just cloned repo and beginning build process." && sleep 1.7
-		cd ~/xero_iso
-		xero
-	else
-		echo "abs found the xerolinux profile. abs will now begin the xero build process." && sleep 1.7
-		xero
-	fi
-}
-
-absXg() {
-	echo "Oki, let's get ready to build a XeroG iso from the provided XeroG profile."
-	echo
-	echo "Scanning for XeroG profile."
-	if [[ ! -d XeroG ]]; then
-		echo "Couldn't find the XeroG profile in the current directory."
-		cloneGit xerog
-		echo "Changing directory to just cloned repo and beginning build process." && sleep 1.7
-		cd ~/xero_g_iso
-		xerog
-	else
-		echo "abs found the xerolinux profile. abs will now begin the xero build process." && sleep 1.7
-		xerog
-	fi
-}
-
-if [[ $1 == "help" || $1 == "-help" || $1 == "-h" || $1 == "-H" ]]; then
-	helpOpt
-elif [[ $1 == "custom" || $1 == "Custom" || $1 == "CUSTOM" || $1 == "-c" || $1 == "-C" ]]; then
-	absC
-elif [[ $1 == "xero" || $1 == "Xero" || $1 == "XERO" || $1 == "xerolinux" || $1 == "XeroLinux" || $1 == "Xerolinux" || $1 == "xeroLinux" || $1 == "-x" || $1 == "-X" ]]; then
-	absX
-elif  [[ $1 == "xerog" || $1 == "Xerog" || $1 == "XeroG" ]]; then
-	absXg
-elif [[ -n $1 ]]; then
-	echo "Sorry, abs does not recognize this option. Run ${fgCyan}abs -help${txReset} for a list of accepted options and their brief descriptions."
+elif [[ $1 == "-h" || $1 == "--help" ]]; then
+	helpOpt $1
+elif [[ $1 == "-L" ]]; then
+	listOpt
+elif  [[ $1 == "-v" || $1 == "vanilla" || $1 == "releng" ]]; then
+	vanilla
+elif  [[ $1 == "-vb" || $1 == "vanillaBaseline" || $1 == "baseline" ]]; then
+	vanillaBaseline
+elif [[ $1 == "-x" || $1 == "xero" ]]; then
+	xero
+elif  [[ $1 == "-xg" || $1 == "xerog" ]]; then
+	xerog
+elif [[ -n $1 ]]; then # If stdin is a not empty string not matching any  of the previous conditions then:
+	echo "Sorry, ${BT} does not recognize this option. Run ${fgCyan}${BT} -h${txReset} or ${fgCyan}${BT} --help (for more detailed version)${txReset} to display help message."
 else
-	read -p "Are you looking to build a ${fgCyan}${txUnderline}custom${txReset} iso or ${fgCyan}${txUnderline}xero${txReset} iso or do you need ${fgRed}help${txReset}? " answer
+	listOpt
+	read -p "What option would you like to select? " answer
 	finished='0'
 	while [ finished != 1 ]; do
 	case $answer in
-		custom | Custom | CUSTOM | -C | -c )
+		-c | custom )
 			finished='1'
-			absC
+			custom
 			;;
-		xero | XERO | xerolinux | XeroLinux | Xerolinux | xeroLinux | XEROLINUX | -x | -X )
+		-h | --help )
+			helpOpt $answer
+			;;
+		-L )
+			listOpt
+			;;
+		-v | vanilla | releng )
 			finished='1'
-			absX
+			vanilla
 			;;
-		XeroG | xerog | Xerog )
+		-vb | vanillaBaseline | baseline )
 			finished='1'
-			absXg
+			vanillaBaseline
 			;;
-		help | -h | -H | HELP | help )
-			helpOpt
+		-x | xero )
+			finished='1'
+			xero
+			;;
+		-xg | xerog )
+			finished='1'
+			xerog
 			;;
 		* )
-			echo "Not a valid abs option. Enter ${fgCyan}${txUnderline}custom${txReset} or ${fgCyan}${txUnderline}xero${txReset}"
-			echo "Additionally you can run ${fgCyan}abs help${txReset} for abs options and descriptions."
+			echo "Not a valid ${BT} option. Enter ${fgCyan}${txUnderline}custom${txReset} or ${fgCyan}${txUnderline}xero${txReset}"
+			echo "Additionally you can run ${fgCyan}${BT} help${txReset} for ${BT} options and descriptions."
 			read -p "Are you looking to build a ${fgCyan}${txUnderline}custom${txReset} iso or a ${fgCyan}${txUnderline}xero${txReset} iso? " answer
 			;;
 	esac
@@ -142,5 +67,5 @@ fi
 # Functionality for the future potentially
 # Error catching
 #	echo "${txBold}last-error${txReset}"
-#	echo "Adding this option to abs will print last exit/err code abs set when last ran."
+#	echo "Adding this option to ${BT} will print last exit/err code ${BT} set when last ran."
 #	echo $fgMagenta&&xUnicode 2730 49&&echo $txReset

@@ -1,22 +1,31 @@
 #!/bin/bash
+# https://keyaedisa.github.io/
 
 custom() {
- source /etc/abs/options/custom
- exit
+ source /etc/$BT/options/custom
 }
 
-xero() {
- source /etc/abs/options/xero
- exit
-}
-
-xerog() {
- source /etc/abs/options/xerog
- exit
+listOpt() {
+ source /etc/$BT/options/listOpt
 }
 
 helpOpt() {
- source /etc/abs/options/help
- exit
+ source /etc/$BT/options/help
+}
+
+vanilla() {
+ source /etc/$BT/options/vanilla
+}
+
+vanillaBaseline() {
+ source /etc/$BT/options/vanillaBaseline
+}
+
+xero() {
+ source /etc/$BT/options/xero
+}
+
+xerog() {
+ source /etc/$BT/options/xerog
 }
 
