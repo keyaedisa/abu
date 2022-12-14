@@ -18,7 +18,7 @@ echo "The build directory however will be destroyed and remade."
 if [[ -d Arch-Vanilla ]]; then
 	echo "abs has ${fgCyan}found${txReset} the Arch-Vanilla directory this option uses!" && sleep 1.3
 	echo "abs will now change into that directory and empty the build folder before moving forward."
-	rm -rf Arch-Vanilla/Build && mkdir Arch-Vanilla/Build
+	sudo rm -rf Arch-Vanilla/Build && mkdir Arch-Vanilla/Build
 else
 	echo "abs could ${fgRed}not${txReset} locate the directory this option uses. abs will now create it." && sleep 1.3
 	mkdir Arch-Vanilla
@@ -38,7 +38,7 @@ isArchisoUpToDate
 valenRepoAdder
 
 echo "abs will now copy over the Latest Montly Arch Profile into this directory."
-cp -r /usr/share/archiso/configs/releng/ Arch-Vanilla/
+cp -rf /usr/share/archiso/configs/releng/ Arch-Vanilla/
 
 echo
 echo "We are all setup to build the latest Vanilla Arch Monthly ISO. Lets Begin!"
@@ -47,5 +47,5 @@ echo "Build folder will be labeled Build!"
 echo "This will take a bit so perhaps make some coffee!"
 
 sudo mkarchiso -v -w $buildDir -o $outDir $profile
-sudo chown -R $user $buildDir
-sudo chown -R $user $outDir
+#sudo -U $user chown -R $user $buildDir
+#sudo -U $user chown -R $user $outDir
