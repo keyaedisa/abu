@@ -31,10 +31,6 @@ echo
 	checkInternetConnection
 	isArchisoUpToDate
 
-read -p "Would you like to add Valen Repo to your archiso's pacman.conf so you can ${fgCyan}easily${txReset} download abs on your new system? : " yn
-
-	valenRepoAdder $yn
-
 echo
 echo "${fgCyan}Step 3${txReset}:Getting ready to ${fgCyan}build the ISO${txReset}!"
 echo

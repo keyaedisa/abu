@@ -17,9 +17,9 @@ elif  [[ $1 == "-v" || $1 == "vanilla" || $1 == "releng" ]]; then
 	vanilla
 elif  [[ $1 == "-vb" || $1 == "vanillaBaseline" || $1 == "baseline" ]]; then
 	vanillaBaseline
-elif [[ $1 == "-x" || $1 == "xero" ]]; then
+elif [[ $1 == "-x" || $1 == "xero" || $1 == xero ]]; then
 	xero
-elif  [[ $1 == "-xg" || $1 == "xerog" ]]; then
+elif  [[ $1 == "-xg" || $1 == "xerog" || $1 == "XeroG" ]]; then
 	xerog
 elif [[ -n $1 ]]; then # If stdin is a not empty string not matching any  of the previous conditions then:
 	echo "Sorry, ${BT} does not recognize this option. Run ${fgCyan}${BT} -h${txReset} or ${fgCyan}${BT} --help (for more detailed version)${txReset} to display help message."
@@ -47,11 +47,11 @@ else
 			finished='1'
 			vanillaBaseline
 			;;
-		-x | xero )
+		-x | xero | Xero )
 			finished='1'
 			xero
 			;;
-		-xg | xerog )
+		-xg | xerog | XeroG )
 			finished='1'
 			xerog
 			;;
