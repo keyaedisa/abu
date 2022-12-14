@@ -27,7 +27,7 @@ checkInternetConnection() {
 	fi
 }
 
-isArchisoUpToDate () {
+isArchisoUpToDate() {
 	sudo pacman -Sy >> stfu.txt
 	sudo pacman -S archiso --needed --noconfirm > /dev/null 2>stfu.txt
 	if [[ -n $(sed -n 's/is up to date -- skipping//p' stfu.txt) ]]; then
