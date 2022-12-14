@@ -27,7 +27,7 @@ else
 	listOpt
 	read -p "What option would you like to select? " answer
 	finished='0'
-	while [ finished != 1 ]; do
+#	while [ finished != 1 ]; do
 	case $answer in
 		-c | custom )
 			finished='1'
@@ -61,7 +61,7 @@ else
 			read -p "Are you looking to build a ${fgCyan}${txUnderline}custom${txReset} iso or a ${fgCyan}${txUnderline}xero${txReset} iso? " answer
 			;;
 	esac
-	done
+#	done
 fi
 
 # Functionality for the future potentially

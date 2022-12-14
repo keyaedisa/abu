@@ -100,12 +100,13 @@ cloneGit() {
 	done
 }
 
-valenRepoAdder () {
+valenRepoAdder() {
 
+ read -p "Would you like to add Valen Repo to your archiso's pacman.conf so you can ${fgCyan}easily${txReset} download abs on your new system? : " yn
  echo
  fin='0'
  while [[ $fin = '0' ]]; do
- case $1 in
+ case $yn in
  	y | Y | yes | Yes )
 		pmanConf=$(cat $profile/airootfs/etc/pacman.conf)
 		if [[ "$pmanConf" =~ "valen_repo" ]]; then
