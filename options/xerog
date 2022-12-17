@@ -17,12 +17,7 @@ echo
 	outDir=$HOME"/${profile}-Out"
 	user=$(whoami)
 
-if [[ ! -d $profile ]]; then
-	echo "Couldn't find ${fgRed}${profile}${txReset}! Are you sure you're in the correct directory?"
-#	sed '$d' /etc/${BT}/misc/lastErr && echo \$err1 > /etc/${BT}/misc/lastErr
-	gitClone xerog
-	exit
-fi
+	searchForSourceGit $profile
 
 echo
 echo "${fgCyan}Step 2${txReset}: Making sure you have latest ${fgCyan}archiso${txReset}!"

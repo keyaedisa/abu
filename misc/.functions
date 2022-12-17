@@ -14,7 +14,6 @@ checkSudo() {
     if [[ ${UID} -eq 0 ]]; then
         echo "Must ${txBold}${fgRed}NOT${txReset} run ${BT} as root!"
         echo "Exiting now!"
-#        sed '$d' /etc/${BT}/misc/lastErr && echo \$err6 > /etc/${BT}/misc/lastErr
         exit
     fi
 }
@@ -22,7 +21,6 @@ checkSudo() {
 checkInternetConnection() {
 	ping -c 1 -q xerolinux.xyz >&/dev/null; if [[ $? != 0 ]]; then
 	echo "${fgRed}Not connected to the internet${txReset}! Fix that and try again."
-#	sed '$d' /etc/${BT}/misc/lastErr && echo \$err7 > /etc/${BT}/misc/lastErr
 	exit
 	fi
 }
@@ -54,28 +52,26 @@ isArchisoUpToDate() {
 				;;
 		esac
 		done
-#		sed '$d' /etc/${BT}/misc/lastErr && echo \$err8 > /etc/${BT}/misc/lastErr
-		exit
 	fi
 }
 
 cloneGit() {
 	read -p "Would you like to clone the latest ${1} git to your home directory? ${fgRed}Warning${txReset}! This will replace this repo in your home directory if it already exists! (${fgGreen}Y${txReset}/${fgRed}N${txReset}): " YN
 	finished="0"
-	profileSelection=$1
+	sourceGit=$1
 	while [[ $finished != 1 ]]; do
 	case $YN in
 		y | Y | yes | Yes | YES )
 
 			echo "Oki, cloning repo now."
-			if [[ $profileSelection == "xero" ]]; then
+			if [[ $sourceGit == "Xero" ]]; then
 				if [[ -d ~/xero_iso ]]; then
 					rm -rf ~/xero_iso
 					git clone https://github.com/xerolinux/xero_iso.git ~/xero_iso
 				else
 					git clone https://github.com/xerolinux/xero_iso.git ~/xero_iso
 				fi
-			elif [[ $profileSelection == "xerog" ]]; then
+			elif [[ $sourceGit == "XeroG" ]]; then
 				if [[ -d ~/xero_g_iso ]]; then
 					rm -rf ~/xero_g_iso
 					git clone https://github.com/xerolinux/xero_g_iso.git ~/xero_g_iso
@@ -98,6 +94,17 @@ cloneGit() {
 			;;
 	esac
 	done
+}
+
+searchForSourceGit() {
+	sourceGit=$1
+	if [[ ! -d $sourceGit ]]; then
+		echo "Couldn't find ${fgRed}${sourceGit}${txReset} git in the current directory!"
+		cloneGit $sourceGit
+	else
+		echo "Found ${fgCyan}${sourceGit}${txReset} git!"
+	fi
+
 }
 
 valenRepoAdder() {
