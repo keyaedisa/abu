@@ -56,7 +56,8 @@ isArchisoUpToDate() {
 }
 
 cloneGit() {
-	read -p "Would you like to clone the latest ${1} git to your home directory? ${fgRed}Warning${txReset}! This will replace this repo in your home directory if it already exists! (${fgGreen}Y${txReset}/${fgRed}N${txReset}): " YN
+	echo "Would you like to clone the latest ${1} git to your home directory?"
+	read -p "${fgRed}Warning${txReset}! This will replace this repo in your home directory if it already exists! (${fgGreen}Y${txReset}/${fgRed}N${txReset}): " YN
 	finished="0"
 	sourceGit=$1
 	while [[ $finished != 1 ]]; do
