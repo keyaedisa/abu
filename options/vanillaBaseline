@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://keyaedisa.github.io/
 
 echo "Oki! Preparing to build a Vanilla Arch ISO using latest monthly ${fgCyan}Baseline${txReset} profile!"
 echo "Do keep in mind this ISO will have only just enough for you to boot it!"
@@ -40,8 +41,10 @@ checkInternetConnection
 isArchisoUpToDate
 valenRepoAdder
 
-echo "abs will now copy over the Latest Montly ${fgCyan}Baseline${txReset} Arch Profile into this directory."
-cp -rf /usr/share/archiso/configs/baseline/ baseline/
+echo "abs will now copy over the Latest Monthly ${fgCyan}Baseline${txReset} Arch Profile into this directory."
+
+sudo rm -rf baseline
+cp -rf /usr/share/archiso/configs/baseline/ .
 
 echo
 echo "We are all setup to build the ${fgCyan}latest Baseline${txReset} Vanilla Arch Monthly ISO. Lets Begin!"
@@ -55,3 +58,7 @@ sudo chown -R $user $outDir
 
 echo
 echo "Done! Check out ${fgCyan}~/Arch-Vanilla-Baseline/ISO/${txReset} for your new ISO!"
+echo "${fgCyan}Done!${txReset} Look in ${txBold}${outDir}${txReset} for your ${txUnderline}build and ISO folder${txReset}!"
+echo "Made with ${fgRed}love${txReset} by your ${fgMagenta}favorite genderless${txReset} being ${txUnderline}{fgMagenta}Keyaedisa${txReset}!"
+echo "${txUnderline}${fgCyan}https://keyaedisa.github.io${txReset}, ${txUnderline}${fgCyan}https://github.com/keyaedisa${txReset}, ${txUnderline}${fgCyan}https://keyaedisa.carrd.co${txReset}!"
+

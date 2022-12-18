@@ -5,10 +5,6 @@ custom() {
  source /etc/$BT/options/custom
 }
 
-listOpt() {
- source /etc/$BT/options/listOpt
-}
-
 helpOpt() {
  source /etc/$BT/options/help
 }

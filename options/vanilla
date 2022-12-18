@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://keyaedisa.github.io/
 
 echo "Oki! Preparing to build a Vanilla Arch ISO using latest monthly ${fgCyan}Releng${txReset} profile!"
 echo
@@ -40,9 +41,11 @@ checkInternetConnection
 isArchisoUpToDate
 valenRepoAdder
 
-echo "abs will now copy over the Latest Montly ${fgCyan}Releng${txReset} Arch Profile into this directory."
+echo "abs will now copy over the Latest Monthly ${fgCyan}Releng${txReset} Arch Profile into this directory."
 echo
-cp -rf /usr/share/archiso/configs/releng/ releng/
+
+sudo rm -rf releng
+cp -rf /usr/share/archiso/configs/releng/ .
 
 echo "We are all setup to build the ${fgCyan}latest releng${txReset} Vanilla Arch Monthly ISO. Lets Begin!"
 echo "ISO will be found in ${fgCyan}~/Arch-Vanilla/ISO/${txReset}!"
@@ -55,3 +58,7 @@ sudo chown -R $user $buildDir
 sudo chown -R $user $outDir
 
 echo "Done! Check out ${fgCyan}~/Arch-Vanilla/ISO/${txReset} for your new ISO!"
+echo "${fgCyan}Done!${txReset} Look in ${txBold}${outDir}${txReset} for your ${txUnderline}build and ISO folder${txReset}!"
+echo "Made with ${fgRed}love${txReset} by your ${fgMagenta}favorite genderless${txReset} being ${txUnderline}{fgMagenta}Keyaedisa${txReset}!"
+echo "${txUnderline}${fgCyan}https://keyaedisa.github.io${txReset}, ${txUnderline}${fgCyan}https://github.com/keyaedisa${txReset}, ${txUnderline}${fgCyan}https://keyaedisa.carrd.co${txReset}!"
+

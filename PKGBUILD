@@ -5,8 +5,8 @@
 
 # Maintainer: Your Name <keyaedisa>
 pkgname="abs"
-pkgver=3.2
-pkgrel=3
+pkgver=3.3
+pkgrel=0
 epoch=
 pkgdesc="Command line utility to automate the building of an arch iso using a user provided profile! Also the official way to build XeroLinux and XeroLinux Gnome Edition! abs can even be used to build current Vanilla Arch ISO's! Both Releng and Baseline!"
 arch=('x86_64')
@@ -26,21 +26,21 @@ provides=('abs')
 #replaces=('archiso-build-scripts')
 #backup=()
 #options=()
-#install=
+install=abs.install
 #changelog=
-source=("gclone"::"git+https://github.com/keyaedisa/abs.git")
+source=("gc"::"git+https://github.com/keyaedisa/abs.git")
 #noextract=()
 #md5sums=()
 sha256sums=('SKIP')
 
 package() {
 	mkdir -p "${pkgdir}/usr/local/bin/"
-	cp "${srcdir}/gclone/abs" "${pkgdir}/usr/local/bin/abs"
+	cp "${srcdir}/gc/abs" "${pkgdir}/usr/local/bin/abs"
 	mkdir -p "${pkgdir}/etc/abs/"
-	cp -rf "${srcdir}/gclone/misc/" "${pkgdir}/etc/abs/"
-	cp -rf "${srcdir}/gclone/options/" "${pkgdir}/etc/abs/"
-	cp "${srcdir}/gclone/options/.options" "${pkgdir}/etc/abs/"
-	rm -r "../gclone"
+	cp -rf "${srcdir}/gc/misc/" "${pkgdir}/etc/abs/"
+	cp -rf "${srcdir}/gc/options/" "${pkgdir}/etc/abs/"
+	cp "${srcdir}/gc/options/.options" "${pkgdir}/etc/abs/"
+	rm -r "../gc"
 	rm -r "${srcdir}"
 }
 

@@ -2,9 +2,11 @@
 # List of functions used by abs/d
 # https://keyaedisa.github.io
 
+version=
+
 trap_ctrlc() {
 	echo
-    echo "Ctrl-C detected. Ending current ${BT} session."
+    echo "Ctrl-C detected. Ending current abs session."
     exit
 }
 
@@ -12,7 +14,7 @@ trap "trap_ctrlc" 2
 
 checkSudo() {
     if [[ ${UID} -eq 0 ]]; then
-        echo "Must ${txBold}${fgRed}NOT${txReset} run ${BT} as root!"
+        echo "Must ${txBold}${fgRed}NOT${txReset} run abs as root!"
         echo "Exiting now!"
         exit
     fi
@@ -48,7 +50,7 @@ isArchisoUpToDate() {
 				exit
 				;;
 			* )
-				echo "${BT} does not understand what you said. Try again. (${fgGreen}y${txReset}/${fgRed}n${txReset})"
+				echo "abs does not understand what you said. Try again. (${fgGreen}y${txReset}/${fgRed}n${txReset})"
 				;;
 		esac
 		done
@@ -86,15 +88,35 @@ cloneGit() {
 			echo "Done."
 			;;
 		n | N | no | No | NO )
-			echo "Oki. ${BT} will not clone. Please run ${BT} in the directory containing the xero profile"
+			echo "Oki. abs will not clone. Please run abs in the directory containing the xero profile"
 			finished="1"
 			;;
 		* )
-			echo "${BT} does not understand your response. Please try again. ${fgGreen}Y${txReset} or ${fgRed}N${txReset}."
+			echo "abs does not understand your response. Please try again. ${fgGreen}Y${txReset} or ${fgRed}N${txReset}."
 			read -p "Would you like to clone the latest ${1} git to your home directory?: " YN
 			;;
 	esac
 	done
+}
+
+currentVersion(){
+	echo "${txBold}${fgBlue}Version${txReset}:"
+	echo "    ${txBold}${fgMagenta}abs${txReset} v${fgCyan}${version}${txReset}!"
+}
+
+listOptions() {
+	echo "${txBold}${fgBlue}Usage${txReset}:"
+	echo "    abs [OPTIONS]"
+	printf "${txBold}${fgBlue}Options${txReset}:\n"
+	printf "    abs can be called with no options and an interactive menu will start\n"
+	printf "    -c,     \tBuild an Arch ISO using a custom profile.\n"
+	printf "    -h,     \tDisplay help message and exit.\n"
+	printf "    --help, \tDisplay more detailed help message and exit.\n"
+	printf "    -V,     \tDisplay current abs version.\n"
+	printf "    -v,     \tBuild an official Vanilla Arch Monthly ISO.\n"
+	printf "    -vb,    \tBuild an official Vanilla Arch Monthly ISO but with only whats needed to boot.\n"
+	printf "    -x,     \tBuild a XeroLinux Arch ISO using latest source.\n"
+	printf "    -xg,    \tBuild a XeroLinux Gnome Arch ISO using latest source.\n"
 }
 
 searchForSourceGit() {
@@ -165,7 +187,7 @@ valenRepoAdder() {
 		fin='1'
 		;;
 	* )
-		echo "${BT} does not understand! Try again. (${fgGreen}y${txReset}/${fgRed}n${txReset})"
+		echo "abs does not understand! Try again. (${fgGreen}y${txReset}/${fgRed}n${txReset})"
 		;;
  esac
  done
