@@ -43,15 +43,13 @@ package() {
 	rm -r "../gc"
 	rm -r "${srcdir}"
 	
-	if [[ ${pkgname} == "abs" ]]; then
-		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "${pkgdir}/etc/abs/misc/.formatting"
- 	elif [[ ${pkgname} == "absd" ]]; then
- 		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "${pkgdir}/etc/abs/misc/.formatting"
- 	else
-		echo "hey bb"
- 	fi
-	rm -r "../gc"
-	rm -r "${srcdir}"
+#	if [[ ${pkgname} == "abs" ]]; then
+#		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "${pkgdir}/etc/abs/misc/.formatting"
+# 	elif [[ ${pkgname} == "absd" ]]; then
+# 		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "${pkgdir}/etc/abs/misc/.formatting"
+# 	else
+#		echo "hey bb"
+# 	fi
 }
 
 
