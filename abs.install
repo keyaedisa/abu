@@ -1,8 +1,8 @@
 post_upgrade() {
  if [[ $pkgname == "abs" ]]; then
-	sed -i  "/version/c version=${pkgver}-${pkgrel}" etc/abs/misc/.functions
+	sed -i  "/version/c version=${pkgver}-${pkgrel}" "etc/abs/misc/.functions"
  elif [[ $pkgname == "absd" ]]; then
-	sed -i  "/version/c version=${pkgver}-${pkgrel}" etc/absd/misc/.functions
+	sed -i  "/version/c version=${pkgver}-${pkgrel}" "etc/absd/misc/.functions"
  else
 	echo "hey bb"
  fi

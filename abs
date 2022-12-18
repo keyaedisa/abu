@@ -5,8 +5,6 @@ source /etc/abs/misc/.bashFormatting
 source /etc/abs/misc/.functions
 source /etc/abs/.options
 
-currentVersion
-
 if [[ $1 == "-c" || $1 == "--custom" ]]; then
 	custom
 elif [[ $1 == "-h" || $1 == "--help" ]]; then

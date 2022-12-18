@@ -2,26 +2,26 @@
 # https://keyaedisa.github.io/
 
 custom() {
- source /etc/$BT/options/custom
+ source /etc/abs/options/custom
 }
 
 helpOpt() {
- source /etc/$BT/options/help
+ source /etc/abs/options/help
 }
 
 vanilla() {
- source /etc/$BT/options/vanilla
+ source /etc/abs/options/vanilla
 }
 
 vanillaBaseline() {
- source /etc/$BT/options/vanillaBaseline
+ source /etc/abs/options/vanillaBaseline
 }
 
 xero() {
- source /etc/$BT/options/xero
+ source /etc/abs/options/xero
 }
 
 xerog() {
- source /etc/$BT/options/xerog
+ source /etc/abs/options/xerog
 }
 
