@@ -34,7 +34,6 @@ source=("gc"::"git+https://github.com/keyaedisa/abs.git")
 sha256sums=('SKIP')
 
 package() {
-	cd "${srcdir}/"
 	mkdir -p "${pkgdir}/usr/local/bin/"
 	cp "${srcdir}/gc/abs" "${pkgdir}/usr/local/bin/abs"
 	mkdir -p "${pkgdir}/etc/abs/"
