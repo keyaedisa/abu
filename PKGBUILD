@@ -6,7 +6,7 @@
 # Maintainer: Your Name <keyaedisa>
 pkgname="abs"
 pkgver=3.3
-pkgrel=5
+pkgrel=3
 epoch=
 pkgdesc="Command line utility to automate the building of an arch iso using a user provided profile! Also the official way to build XeroLinux and XeroLinux Gnome Edition! abs can even be used to build current Vanilla Arch ISO's! Both Releng and Baseline!"
 arch=('x86_64' 'xi686')
@@ -34,7 +34,7 @@ source=("gc"::"git+https://github.com/keyaedisa/abs.git")
 sha256sums=('SKIP')
 
 package() {
-	cd "${srcdir}/${pkgname}-${pkgver}"
+	cd "${srcdir}/"
 	mkdir -p "${pkgdir}/usr/local/bin/"
 	cp "${srcdir}/gc/abs" "${pkgdir}/usr/local/bin/abs"
 	mkdir -p "${pkgdir}/etc/abs/"
