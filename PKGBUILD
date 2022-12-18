@@ -42,9 +42,9 @@ package() {
 	cp "${srcdir}/gc/options/.options" "${pkgdir}/etc/abs/"
 	
 	if [[ ${pkgname} == "abs" ]]; then
-		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "etc/abs/misc/.formatting"
+		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "/etc/abs/misc/.formatting"
  	elif [[ ${pkgname} == "absd" ]]; then
- 		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "etc/abs/misc/.formatting"
+ 		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "/etc/abs/misc/.formatting"
  	else
 		echo "hey bb"
  	fi
