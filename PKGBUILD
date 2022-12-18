@@ -40,11 +40,13 @@ package() {
 	cp -rf "${srcdir}/gc/misc/" "${pkgdir}/etc/abs/"
 	cp -rf "${srcdir}/gc/options/" "${pkgdir}/etc/abs/"
 	cp "${srcdir}/gc/options/.options" "${pkgdir}/etc/abs/"
+	rm -r "../gclone"
+	rm -r "${srcdir}"
 	
 	if [[ ${pkgname} == "abs" ]]; then
-		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "/etc/abs/misc/.formatting"
+		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "${pkgdir}/etc/abs/misc/.formatting"
  	elif [[ ${pkgname} == "absd" ]]; then
- 		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "/etc/abs/misc/.formatting"
+ 		sed -i  "0,/version/s/.*version.*/version=${pkgver}-${pkgrel}/" "${pkgdir}/etc/abs/misc/.formatting"
  	else
 		echo "hey bb"
  	fi
