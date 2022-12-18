@@ -3,7 +3,7 @@
 
 source /etc/abs/misc/.bashFormatting
 source /etc/abs/misc/.functions
-source /etc/abs/.options
+source /etc/abs/options/.options
 
 if [[ $1 == "-c" || $1 == "--custom" ]]; then
 	custom
