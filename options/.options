@@ -2,30 +2,30 @@
 # https://keyaedisa.github.io/
 
 currentVersion() {
- source /etc/dab/options/currentVersion
+ source /etc/abs/options/currentVersion
 }
 
 custom() {
- source /etc/dab/options/custom
+ source /etc/abs/options/custom
 }
 
 helpOpt() {
- source /etc/dab/options/help
+ source /etc/abs/options/help
 }
 
 vanilla() {
- source /etc/dab/options/vanilla
+ source /etc/abs/options/vanilla
 }
 
 vanillaBaseline() {
- source /etc/dab/options/vanillaBaseline
+ source /etc/abs/options/vanillaBaseline
 }
 
 xero() {
- source /etc/dab/options/xero
+ source /etc/abs/options/xero
 }
 
 xerog() {
- source /etc/dab/options/xerog
+ source /etc/abs/options/xerog
 }
 

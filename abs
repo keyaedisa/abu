@@ -20,7 +20,7 @@ elif [[ $1 == "-x" || $1 == "--xero" || $1 == "xero" || $1 == "Xero" ]]; then
 elif  [[ $1 == "-xg" || $1 == "--xerog" || $1 == "xerog" || $1 == "XeroG"  ]]; then
 	xerog
 elif [[ -n $1 ]]; then # If stdin is a not empty string not matching any  of the previous conditions then:
-	echo "Sorry, abs does not recognize this option. Run ${fgCyan}abs -h${txReset} or ${fgCyan}abs --help (for more detailed version)${txReset} to display help message."
+	echo "Sorry, abs does not recognize this option. Run ${fgCyan}dab -h${txReset} or ${fgCyan}dab --help (for more detailed version)${txReset} to display help message."
 else
 	listOptions
 	read -p "What option would you like to select? " answer
