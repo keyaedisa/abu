@@ -5,7 +5,7 @@ export app_name="${0##*/}"
 
 source /etc/abs/misc/.bashFormatting
 source /etc/abs/misc/.functions
-source /etc/abs/misc/.options
+source /etc/abs/options/.options
 
 #if [[ $1 == "-c" || $1 == "--custom" ]]; then
 #	custom
