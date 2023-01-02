@@ -44,7 +44,7 @@ echo "abs will now copy over the Latest Monthly ${fgCyan}Releng${txReset} Arch P
 echo
 
 sudo rm -rf releng
-cp -rf /usr/share/archiso/configs/releng/ .
+cp -rf /usr/share/archiso/configs/releng/ . && sleep 5
 valenRepoAdder releng
 
 echo "We are all setup to build the ${fgCyan}latest releng${txReset} Vanilla Arch Monthly ISO. Lets Begin!"
