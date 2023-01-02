@@ -44,7 +44,7 @@ echo "abs will now copy over the Latest Monthly ${fgCyan}Baseline${txReset} Arch
 
 sudo rm -rf baseline
 cp -rf /usr/share/archiso/configs/baseline/ .
-valenRepoAdder baseline
+#valenRepoAdder baseline
 
 echo
 echo "We are all setup to build the ${fgCyan}latest Baseline${txReset} Vanilla Arch Monthly ISO. Lets Begin!"
