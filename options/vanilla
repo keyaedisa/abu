@@ -39,13 +39,13 @@ echo
 
 checkInternetConnection
 isArchisoUpToDate
-valenRepoAdder releng
 
 echo "abs will now copy over the Latest Monthly ${fgCyan}Releng${txReset} Arch Profile into this directory."
 echo
 
 sudo rm -rf releng
 cp -rf /usr/share/archiso/configs/releng/ .
+valenRepoAdder releng
 
 echo "We are all setup to build the ${fgCyan}latest releng${txReset} Vanilla Arch Monthly ISO. Lets Begin!"
 echo "ISO will be found in ${fgCyan}~/Arch-Vanilla/ISO/${txReset}!"
