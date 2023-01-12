@@ -1,5 +1,5 @@
 #!/bin/bash
-# List of functions used by abs duh
+# List of functions used by abs
 # https://keyaedisa.github.io, https://github.com/keyaedisa
 
 trap_ctrlc() {
