@@ -1,5 +1,5 @@
 #!/bin/bash
-# https://keyaedisa.github.io, https://github.com/keyaedisa
+# https://keyaedisa.github.io, https://github.com/keyaedisa !!
 
 export app_name="${0##*/}"
 
