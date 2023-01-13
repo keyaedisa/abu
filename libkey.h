@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <unistd.h>
 #define MAXLINE 1000 //max length of 2nd dimension
 #define SPACE ' '
 #define TAB '\t'
