@@ -5,8 +5,9 @@
 
 int main(int argc, char *argv[]){
     bool cmlArgPassed; // keeps track of if the user called abu with or w/out args from the console
-    if(argc >= 2){
-        cmlArgPassed = true;
+    if(argc > 2){
+        // cmlArgPassed = true;
+        tui()
     }
     else{
         cmlArgPassed = false;

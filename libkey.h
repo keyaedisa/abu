@@ -18,6 +18,70 @@ void delSame(char *s1, const char *s2);
 int any(const char*,const char*);
 void intDecimalToBinary(unsigned x);
 
+enum options{custom,help}
+
+void optParser(int argc, char* constant argv[]){
+    if(argc > 1)
+    { 
+        for(int i = 0; i < argc; i++)
+        {
+            switch (arg[i])
+            {
+                case '-c': custom(); break;
+                case '-h' || or '--help':
+                    if(arg[i] == '--help')
+                    help(1);
+                    break;
+                case '-v': vanilla(); break;
+                case '-V': version(); break;
+                case '-x': xeroLinux(); break;
+                default:
+                    usage();
+                    exit;
+            }
+        }
+    }
+}
+
+struct options {
+    size_t amount;
+    size_t custom;
+    size_t help;
+    size_t version;
+    size_t vanilla;
+    size_t xero;
+
+}
+
+static error_t parse_opt (int key, char *arg, struct argp_state *state)
+{
+  struct arguments *arguments = state->input;
+
+
+    while(i > argc)
+        switch (arg[i])
+        {
+            case '-c':
+                custom();
+                break;
+            case '-h' || or '--help':
+                if(arg[i] == '--help')
+                help(1);
+
+                break;
+            case '-v':
+      
+                break;
+            case '-V':
+                break;
+            case '-x':
+      
+                break;
+            default:
+                usage();
+    }
+  return 0;
+}
 // Saves lines into array, line by line, with max 1000 length
 void lineSaver(char *(destinationArray)[MAXLINE]){  
     int z, lineNumber = 0;
