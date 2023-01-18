@@ -17,32 +17,34 @@ void copy(char to[], char from[]);
 void delSame(char *s1, const char *s2);
 int any(const char*,const char*);
 void intDecimalToBinary(unsigned x);
+void optParser(int argc, char *argv[]);
 
-enum options{custom,help}
+// enum options{custom,help};
 
-void optParser(int argc, char* constant argv[]){
+void optParser(int argc, char *argv[]){
     if(argc > 1)
     { 
         for(int i = 0; i < argc; i++)
         {
-            switch (arg[i])
+            switch (*argv[i])
             {
-                case '-c': custom(); break;
-                case '-h' || or '--help':
-                    if(arg[i] == '--help')
-                    help(1);
+                case '-c': fprintf(stdout,"%s %s %s %s %d","hi\n",argv,*argv[1],"bye\n",69); break;
+                case '-h' || '--help':
+                    if(*argv[i] == '--help')
+                    //help(1);
                     break;
-                case '-v': vanilla(); break;
-                case '-V': version(); break;
-                case '-x': xeroLinux(); break;
+                case '-v': //vanilla(); break;
+                case '-V': //version(); break;
+                case '-x': //xeroLinux(); break;
                 default:
-                    usage();
+                    //usage();
                     exit;
             }
         }
     }
 }
 
+/*
 struct options {
     size_t amount;
     size_t custom;
@@ -81,7 +83,7 @@ static error_t parse_opt (int key, char *arg, struct argp_state *state)
                 usage();
     }
   return 0;
-}
+}*/
 // Saves lines into array, line by line, with max 1000 length
 void lineSaver(char *(destinationArray)[MAXLINE]){  
     int z, lineNumber = 0;

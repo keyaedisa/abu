@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "libkey.h": "c",
+        "unistd.h": "c"
+    }
+}
