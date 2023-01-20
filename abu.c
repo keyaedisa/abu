@@ -7,18 +7,7 @@
 
 int main(int argc, char *argv[]){
     //bool cmlArgPassed; // keeps track of if the user called abu with or w/out args from the console
-    struct Options options;
-    bool custom;
-    char cus[] = "custom";
-    int help;
-    char hel[] = "help";
-    bool vanilla;
-    char vanil[] = "vanilla";
-    bool version;
-    char vers[] = "version";
-    bool xero;
-    
-    
+       
     fprintf(stdout,"%s %s\n","Program name is:",*argv);
     if(argc == 1){
         fprintf(stdout,"%s","No extra command line arguments.\n");
