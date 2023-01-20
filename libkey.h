@@ -17,32 +17,10 @@ void copy(char to[], char from[]);
 void delSame(char *s1, const char *s2);
 int any(const char*,const char*);
 void intDecimalToBinary(unsigned x);
-void optParser(int argc, char *argv[]);
+void optParser(int, char *[]);
 
-// enum options{custom,help};
+//enum options{custom=2,help,vanilla=5,version,vanilla};
 
-void optParser(int argc, char *argv[]){
-    if(argc > 1)
-    { 
-        for(int i = 0; i < argc; i++)
-        {
-            switch (*argv[i])
-            {
-                case '-c': fprintf(stdout,"%s %s %s %s %d","hi\n",argv,*argv[1],"bye\n",69); break;
-                case '-h' || '--help':
-                    if(*argv[i] == '--help')
-                    //help(1);
-                    break;
-                case '-v': //vanilla(); break;
-                case '-V': //version(); break;
-                case '-x': //xeroLinux(); break;
-                default:
-                    //usage();
-                    exit;
-            }
-        }
-    }
-}
 
 /*
 struct options {
@@ -84,6 +62,27 @@ static error_t parse_opt (int key, char *arg, struct argp_state *state)
     }
   return 0;
 }*/
+/* copy 'from' into 'to'; assume to is big enough */
+void copy(char to[], char from[]){
+    int i;
+    i = 0;
+    while ((to[i] = from[i]) != '\0')
+        ++i;
+}
+
+// deletes any charcter in s1 that is also in s2
+void delSame(char *s1, const char *s2){
+    int i, j, k;
+    k = 0;
+    while(s2[k] != '\0'){
+        for(i = j = 0; s1[i] != '\0'; i++)
+            if(s1[i] != s2[k])
+                s1[j++] = s1[i];
+        s1[j] = '\0';
+        k++;   
+    }    
+}
+
 // Saves lines into array, line by line, with max 1000 length
 void lineSaver(char *(destinationArray)[MAXLINE]){  
     int z, lineNumber = 0;
@@ -147,27 +146,6 @@ int getsline(char s[],int lim){
     return i;
 }
 
-/* copy:  copy 'from' into 'to'; assume to is big enough */
-void copy(char to[], char from[]){
-    int i;
-    i = 0;
-    while ((to[i] = from[i]) != '\0')
-        ++i;
-}
-
-// deletes any charcter in s1 that is also in s2
-void delSame(char *s1, const char *s2){
-    int i, j, k;
-    k = 0;
-    while(s2[k] != '\0'){
-        for(i = j = 0; s1[i] != '\0'; i++)
-            if(s1[i] != s2[k])
-                s1[j++] = s1[i];
-        s1[j] = '\0';
-        k++;   
-    }    
-}
-
 // returns the first position in s1 that has any character thats in s2, returns -1 if  nothing match
 int any(const char *s1,const char *s2){
     int ret = -1;
@@ -184,8 +162,8 @@ int any(const char *s1,const char *s2){
 
 // turns unsigned int decimal into binary
 void intDecimalToBinary(unsigned x){
-    int binary[16];
-    for(int z = 0; z < sizeof(binary)/sizeof(int); z++)
+    size_t binary[16];
+    for(size_t z = 0; z < sizeof(binary)/sizeof(size_t); z++)
         binary[z] = 0;
     int i;
     i = 15;
@@ -201,10 +179,10 @@ void intDecimalToBinary(unsigned x){
         // printf("%d\n",x); for debugging, checks x each go around
         x = x / 2;
     }
-    for(int j = 0; j < sizeof(binary)/sizeof(int); j++){
+    for(size_t j = 0; j < sizeof(binary)/sizeof(size_t); j++){
         if(j % 4 == 0 && j != 0)
             printf(" ");
-        printf("%d",binary[j]);
+        printf("%ld",binary[j]);
     }
     printf("\n");
 }

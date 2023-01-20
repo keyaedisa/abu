@@ -1,20 +1,35 @@
-#include <stdio.h>
-#include <libkey.h>
+#include "libkey.h"
+#include "libabu.h"
 
 // think about potentially using a struct to neatly store the variables abu needs
 // create a string array called options each element contains a string that is the name
 // of the option, and the length of the array is how many options exist
 
 int main(int argc, char *argv[]){
-    bool cmlArgPassed; // keeps track of if the user called abu with or w/out args from the console
-    if(argc > 2){
-        cmlArgPassed = true;
-        fprintf(stdout,"%s %s %s %s %d","hi\n",argv,argv[1],"Bye\n",420);
-        //optParser(argc,*argv);
+    //bool cmlArgPassed; // keeps track of if the user called abu with or w/out args from the console
+    struct Options options;
+    bool custom;
+    char cus[] = "custom";
+    int help;
+    char hel[] = "help";
+    bool vanilla;
+    char vanil[] = "vanilla";
+    bool version;
+    char vers[] = "version";
+    bool xero;
+    
+    
+    fprintf(stdout,"%s %s\n","Program name is:",*argv);
+    if(argc == 1){
+        fprintf(stdout,"%s","No extra command line arguments.\n");
+    }
+    if(argc >= 2){
+        //cmlArgPassed = true;
+        optParser(argc, argv);
     }
     else{
-        cmlArgPassed = false;
-        fprintf(stdout,"%s %s %s %s %d","hi\n",argv,argv[1],"bye\n",69);
+        //cmlArgPassed = false;
+        fprintf(stdout,"%s %d %s %s\n","hi",argc,argv[1],"bye ");
     }
     //abu(cmlArgPassed, *argv){
 
