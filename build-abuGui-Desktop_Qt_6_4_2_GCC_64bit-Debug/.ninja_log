@@ -1,0 +1,10 @@
+# ninja log v5
+1	5	0	/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/CMakeFiles/cmake.verify_globs	f3d6120f4b5492a5
+5	137	1674807558896869329	abuGui_autogen/timestamp	6c1804b3a34e3a53
+5	137	1674807558896869329	abuGui_autogen/mocs_compilation.cpp	6c1804b3a34e3a53
+5	137	1674807558896869329	/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/abuGui_autogen/timestamp	6c1804b3a34e3a53
+5	137	1674807558896869329	/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/abuGui_autogen/mocs_compilation.cpp	6c1804b3a34e3a53
+137	1281	1674807560043549323	CMakeFiles/abuGui.dir/abuGui_autogen/mocs_compilation.cpp.o	aa6c0e834c95cb14
+137	1305	1674807560066882926	CMakeFiles/abuGui.dir/main.cpp.o	a62e597de418fc83
+137	1329	1674807560090216531	CMakeFiles/abuGui.dir/mainwindow.cpp.o	51a187e0f6a93af4
+1329	1571	1674807560333552684	abuGui	9cf590e9cbbae729

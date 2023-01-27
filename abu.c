@@ -1,4 +1,3 @@
-#include "libkey.h"
 #include "libabu.h"
 
 // think about potentially using a struct to neatly store the variables abu needs
@@ -8,15 +7,14 @@
 int main(int argc, char *argv[]){
     //bool cmlArgPassed; // keeps track of if the user called abu with or w/out args from the console
        
-    fprintf(stdout,"%s %s\n","Program name is:",*argv);
+    //fprintf(stdout,"%s %s\n","Program name is:",*argv);
     if(argc == 1){
         fprintf(stdout,"%s","No extra command line arguments.\n");
-    }
-    if(argc >= 2){
+        abuTUI(argc);
+    } else if(argc >= 2){
         //cmlArgPassed = true;
         optParser(argc, argv);
-    }
-    else{
+    } else{
         //cmlArgPassed = false;
         fprintf(stdout,"%s %d %s %s\n","hi",argc,argv[1],"bye ");
     }

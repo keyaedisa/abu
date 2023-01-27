@@ -1,6 +1,10 @@
 #!/bin/bash
 # https://keyaedisa.github.io, https://github.com/keyaedisa !!
 
+source /etc/abs/misc/.bashFormatting
+source /etc/abs/misc/.functions
+source /etc/abs/options/.options
+
 case $1 in
 	-h )
 		echo "${txBold}${fgMagenta}abs${txReset} is a utility designed for building Arch ISO's whether custom or using one of abs's built in options."

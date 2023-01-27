@@ -3,6 +3,10 @@
 # Written by Keyaedisa
 # https://keyaedisa.github.io/ https://github.com/keyaedisa/abs !!
 
+source /etc/abs/misc/.bashFormatting
+source /etc/abs/misc/.functions
+source /etc/abs/options/.options
+
 checkSudo
 
 echo "${fgCyan}Step 1${txReset}: Getting ready to build your ${fgCyan}custom${txReset} ISO!"

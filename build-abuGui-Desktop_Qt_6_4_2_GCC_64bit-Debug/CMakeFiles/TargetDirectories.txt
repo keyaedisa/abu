@@ -1,0 +1,9 @@
+/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/CMakeFiles/abuGui.dir
+/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
+/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
+/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/CMakeFiles/list_install_components.dir
+/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/CMakeFiles/install.dir
+/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/CMakeFiles/install/local.dir
+/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/CMakeFiles/install/strip.dir
+/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/CMakeFiles/abuGui_autogen_timestamp_deps.dir
+/home/key/safekeep/gitRepos/abu/build-abuGui-Desktop_Qt_6_4_2_GCC_64bit-Debug/CMakeFiles/abuGui_autogen.dir

@@ -4,6 +4,10 @@
 # https://keyaedisa.github.io/ !!
 # Made specific to XeroLinux Gnome Edition
 
+source /etc/abs/misc/.bashFormatting
+source /etc/abs/misc/.functions
+source /etc/abs/options/.options
+
 checkSudo
 
 echo
