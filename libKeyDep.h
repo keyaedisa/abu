@@ -19,49 +19,6 @@ int any(const char*,const char*);
 void intDecimalToBinary(unsigned x);
 void optParser(int, char *[]);
 
-//enum options{custom=2,help,vanilla=5,version,vanilla};
-
-
-/*
-struct options {
-    size_t amount;
-    size_t custom;
-    size_t help;
-    size_t version;
-    size_t vanilla;
-    size_t xero;
-
-}
-
-static error_t parse_opt (int key, char *arg, struct argp_state *state)
-{
-  struct arguments *arguments = state->input;
-
-
-    while(i > argc)
-        switch (arg[i])
-        {
-            case '-c':
-                custom();
-                break;
-            case '-h' || or '--help':
-                if(arg[i] == '--help')
-                help(1);
-
-                break;
-            case '-v':
-      
-                break;
-            case '-V':
-                break;
-            case '-x':
-      
-                break;
-            default:
-                usage();
-    }
-  return 0;
-}*/
 /* copy 'from' into 'to'; assume to is big enough */
 void copy(char to[], char from[]){
     int i;

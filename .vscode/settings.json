@@ -2,6 +2,9 @@
     "files.associations": {
         "libkey.h": "c",
         "unistd.h": "c",
-        "libabu.h": "c"
-    }
+        "libabu.h": "c",
+        "stdbool.h": "c",
+        "ncurses.h": "c"
+    },
+    "cmake.configureOnOpen": true
 }

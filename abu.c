@@ -10,7 +10,7 @@ int main(int argc, char *argv[]){
     //fprintf(stdout,"%s %s\n","Program name is:",*argv);
     if(argc == 1){
         fprintf(stdout,"%s","No extra command line arguments.\n");
-        abuTUI(argc);
+        abuTUI();
     } else if(argc >= 2){
         //cmlArgPassed = true;
         optParser(argc, argv);
