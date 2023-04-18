@@ -1,4 +1,4 @@
-Name = New beginnings
+Name = New beginningsz
 
 SRC = $(shell pwd)
 CC = gcc
