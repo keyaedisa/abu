@@ -1,24 +1,25 @@
-#include "dab.h"
+#include "abu.h"
+//#include "lList.h"
 
-lHdr* newHdr(lHdr* nHdr){
-    return nHdr = (lHdr*)malloc(sizeof(lHdr));
+struct lHdr_t* newHdr(struct lHdr_t* nHdr){
+    return nHdr = (struct lHdr_t*)malloc(sizeof(struct lHdr_t));
 }
 
-void* newLDCN(lHdr* hdr){
-    void* newDCNode, *curr = NULL;
+void* newLDCN(struct lHdr_t* hdr){
+    dcNode* newDCNode, *curr = NULL;
 
-    newDCNode = malloc(sizeof(dcNode));
+    newDCNode = (dcNode*) malloc(sizeof(dcNode));
     curr = newDCNode;
     for(int i = hdr->len; i >= 0; i--){
-        curr->next=(i==0)?NULL:malloc(sizeof(dcNode));
+        curr->next=(i==0)?NULL:(dcNode*) malloc(sizeof(dcNode));
         curr=curr->next;
     }
-
+    return (void *)newDCNode;
 }
 
-lHdr *newList(size_t lLen, size_t lType, char* lName, char* lDesc){
-    lHdr* nHdr = NULL;
-    nHdr = (lHdr*) malloc(sizeof(lHdr));
+struct lHdr_t *newList(size_t lLen, size_t lType, char* lName, char* lDesc){
+    struct lHdr_t* nHdr = NULL;
+    nHdr = (struct lHdr_t*) malloc(sizeof(struct lHdr_t));
     nHdr->len=lLen;
     nHdr->type=lType;
     nHdr->name=lName;

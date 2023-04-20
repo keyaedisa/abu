@@ -2,15 +2,14 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#include "dab.h"
+#include "abu.h"
+//#include "lList.h"
+
 
 int main(int argc, char *argv[]){
     printf("pee\n");
-    dab(argc,argv);
-    printf("peez\n");
-    lHdr* testHdr = newList(9,NODE,"test","cumdesc");
-    printf("%d,%d,%s,%s,%p\n",testHdr->len,testHdr->type,testHdr->name,testHdr->desc,\
-    testHdr->firstNode);
+    return abu(argc,argv);
+   
     //dab(cmlArgPassed, *argv){
 
     /*
@@ -20,5 +19,5 @@ int main(int argc, char *argv[]){
     }
     //dab(0);
     //status(); */
-    return 0;
+    //return 0;
 }

@@ -2,11 +2,11 @@ Name = New beginnings
 
 all : $(pkg)
 	
-dab : $(OBJS)
+$(pkg) : $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(pkg)
 	$(MAKE) clean 
 
-$(OBJS) : *.c
+$(OBJS) : $(sourceDir)
 	$(CC) $(CFLAGS) -c *.c
 
 clean :

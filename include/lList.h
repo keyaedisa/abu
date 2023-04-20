@@ -1,9 +1,9 @@
+#include "abu.h"
 
-
-enum nodeT {NODE = 0, DCNODE};
-enum datatypes {INT = 0, SIZE_T, CHAR, STR, CHARA, INTA,}
-#define NODE NODE
-#define DCNODE DCNODE
+enum nodeT {NNODE = 0, DCNODEDC};
+enum datatypes {INT = 0, SIZE_T, CHAR, STR, CHARA, INTA,};
+#define NNODE NNODE
+#define NODEDC NODEDC
 
 typedef struct lHdr_t{
     size_t len;
@@ -19,7 +19,7 @@ typedef struct dcNode{
     size_t type;
     size_t dataType;
     void* data;  // The data stored in this node
-    lHdr* header; // Pointer to header
+    struct lHdr_t* header; // Pointer to header
     size_t index;   // The current position in the list
     struct dcNode* curr; // Pointer to current node
     struct dcNode* next;  // Pointer to the next node in the list
@@ -32,7 +32,7 @@ typedef struct Node{
     size_t type;
     size_t dataType;
     struct Node* next;
-    lHdr* header;
+    struct lHdr_t* header;
 } Node;
 
 /*
@@ -53,7 +53,7 @@ Create an array pointer compound literal of values to be stored in list
 
 // Create a new, empty linked list
 
-lHdr *newList(size_t len, size_t type, char* name, char* desc);
+struct lHdr_t *newList(size_t len, size_t type, char* name, char* desc);
 
 
 

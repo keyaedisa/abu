@@ -1,4 +1,4 @@
-#include "dab.h"
+#include "abu.h"
 
 int hostFlags = 0;
 int* hostFlags_p = &hostFlags;
@@ -32,7 +32,7 @@ static int usage(int e, char* progName){
 //#endif
 	"\tNote: -c,-v,-x can take the following optional arguments -> [-c [archiso-profile], -v [r / b], -x [k / g]]\n\n"
 	"Created by keyaedisa.\n"
-	"archiso wrapper utility designed to help you build your own custom ISO's"
+	"archiso wrapper utility designed to help you build your own custom ISO's "
 	"or an ISO using one of the built in presets.\n\n"
 	"Options:\n"
 	"\t-c, --custom\t[archisoProfile]\tBuild an ISO using a custom profile\n"
@@ -42,7 +42,7 @@ static int usage(int e, char* progName){
 	,progName);
 
 
-	exit(e);
+	return (e);
 }
 
 //int customHandler(dabRunProperties *st){
@@ -53,7 +53,11 @@ static int usage(int e, char* progName){
 
 int optparse(int argc, char* argv[]){
 	int opt;
-	//int index;
+	int ret = 0;
+	if(argc == 1){
+		printf("No options provided. \n");
+		return ((ret = usage(0,argv[0])));
+	};
 	while ((opt = getopt_long(argc,argv,
 //#ifdef DEV_BUILD
 	//"xxx"
@@ -73,8 +77,7 @@ int optparse(int argc, char* argv[]){
 			}
 			break;
 		case 'h':
-			usage(0, argv[0]);
-			break;
+			return ((ret = usage(1, argv[0])));
 		case 'v':
 		if(OPTIONAL_ARGUMENT_IS_PRESENT){
 			if(*optarg == 'b')
@@ -97,12 +100,9 @@ int optparse(int argc, char* argv[]){
 			*hostFlags_p |= archisoProfMan;
 			break;
 		default:
-			printf("kumz\n");
-			usage(1, argv[0]);
+			printf("kumz2\n");
+			return ((ret = usage(0, argv[0])));
 		}
 	}
-	if(argc == 1){
-		usage(1,argv[0]);
-	};
-	return 0;
+	return ret;
 }
