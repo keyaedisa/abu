@@ -1,5 +1,6 @@
 #include "abu.h"
 
+
 int hostFlags = 0;
 int* hostFlags_p = &hostFlags;
 //const int optamt = sizeof(longopts.)/sizeof(b.)
@@ -100,7 +101,6 @@ int optparse(int argc, char* argv[]){
 			*hostFlags_p |= archisoProfMan;
 			break;
 		default:
-			printf("kumz2\n");
 			return ((ret = usage(0, argv[0])));
 		}
 	}
