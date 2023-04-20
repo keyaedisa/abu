@@ -1,5 +1,5 @@
 #include "abu.h"
-//#include "lList.h"
+#include "lList.h"
 
 int abu(int argc, char *argv[]){
     int ret = 0;
