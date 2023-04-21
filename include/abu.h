@@ -28,6 +28,6 @@ extern int selopt;
 // Create an array list of pointers that point to
 
 int abu(int argc, char *argv[]);
-int executor(dabRunOpts_p hostFlags_p);
+int tui(dabRunOpts_p hostFlags_p);
 int optparse(int argc, char* argv[]);
 int isoBldr(char* prof, char opt);
